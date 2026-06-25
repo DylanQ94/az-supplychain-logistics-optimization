@@ -16,13 +16,6 @@ Implemented:
 - Azure Synapse Analytics Serverless SQL serving layer
 - SQL views and CETAS materialized outputs
 
-Pending:
-
-- Power BI semantic model
-- Power BI dashboards
-- DAX measures
-- Report publishing
-
 ## Architecture
 
 ```text
@@ -40,7 +33,7 @@ Azure Synapse Analytics Serverless SQL
     ↓
 Serving Views / CETAS Outputs
     ↓
-Power BI - Pending
+Power BI - (Pending)
 ```
 
 ## Main Technologies
