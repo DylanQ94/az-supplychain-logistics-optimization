@@ -1,5 +1,7 @@
 # Architecture
 
+![Extended_architecture](../assets/screenshots/extended_architecture_diagram_project.png)
+
 ## High-Level Flow
 
 ```text
