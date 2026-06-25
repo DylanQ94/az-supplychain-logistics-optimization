@@ -1,0 +1,122 @@
+{
+    "name": "pl_ingest_supply_chain_dataset",
+    "properties": {
+        "activities": [
+            {
+                "name": "CD_figshare_to_landing",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "BinarySource",
+                        "storeSettings": {
+                            "type": "HttpReadSettings",
+                            "requestMethod": "GET"
+                        },
+                        "formatSettings": {
+                            "type": "BinaryReadSettings"
+                        }
+                    },
+                    "sink": {
+                        "type": "BinarySink",
+                        "storeSettings": {
+                            "type": "AzureBlobFSWriteSettings"
+                        }
+                    },
+                    "enableStaging": false
+                },
+                "inputs": [
+                    {
+                        "referenceName": "ds_http_figshare_supply_chain_binary",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "ds_adls_supply_chain_landing_binary",
+                        "type": "DatasetReference"
+                    }
+                ]
+            },
+            {
+                "name": "GM_validate_landing_file",
+                "type": "GetMetadata",
+                "dependsOn": [
+                    {
+                        "activity": "CD_figshare_to_landing",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "dataset": {
+                        "referenceName": "ds_adls_supply_chain_landing_binary",
+                        "type": "DatasetReference"
+                    },
+                    "fieldList": [
+                        "exists"
+                    ],
+                    "storeSettings": {
+                        "type": "AzureBlobFSReadSettings",
+                        "recursive": true,
+                        "enablePartitionDiscovery": false
+                    },
+                    "formatSettings": {
+                        "type": "BinaryReadSettings"
+                    }
+                }
+            },
+            {
+                "name": "IFC_landing_file_exists",
+                "type": "IfCondition",
+                "dependsOn": [
+                    {
+                        "activity": "GM_validate_landing_file",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "expression": {
+                        "value": "@equals(activity('GM_validate_landing_file').output.exists, true)",
+                        "type": "Expression"
+                    },
+                    "ifFalseActivities": [
+                        {
+                            "name": "Fail_landing_file_missing",
+                            "type": "Fail",
+                            "dependsOn": [],
+                            "userProperties": [],
+                            "typeProperties": {
+                                "message": "LANDING_FILE_NOT_FOUND",
+                                "errorCode": "The supply chain source file was not found in ADLS Landing after copy activity."
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "annotations": [],
+        "lastPublishTime": "2026-06-19T15:21:13Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}
