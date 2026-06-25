@@ -1,6 +1,6 @@
 # Az-SupplyChain — Azure Supply Chain Logistics Optimization Platform
 
-Az-SupplyChain is a data engineering project built on Azure to ingest, process, model, and expose a supply chain logistics dataset for analytical consumption.
+Az-SupplyChain is a data engineering project built on Azure to ingest, process, model, and expose a supply chain logistics dataset for analytical consumption. This project is based on the public Supply Chain Logistics Problem Dataset from Brunel University London, available on Figshare.
 
 The current scope of the project goes from ingestion to the Synapse Serverless SQL serving layer.
 
