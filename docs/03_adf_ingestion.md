@@ -6,7 +6,7 @@ Azure Data Factory was used to ingest the original Supply Chain Logistics datase
 
 ADF was intentionally limited to ingestion. It did not parse sheets, infer schema, clean data, or apply transformations.
 
-## Confirmed Resources
+## Used Resources
 
 | Resource | Name |
 |---|---|
@@ -22,8 +22,6 @@ ADF was intentionally limited to ingestion. It did not parse sheets, infer schem
 ```text
 abfss://supply-chain@sasupplychainz.dfs.core.windows.net/landing/supply_chain_logistics/source=figshare/supply_chain_logistics_problem_dataset.xlsx
 ```
-
-The `version=1` folder was removed from the project to keep the Landing path simple.
 
 ## Final Scope
 
