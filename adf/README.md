@@ -1,6 +1,4 @@
-# ADF Assets
-
-This folder can store exported Azure Data Factory ARM templates, pipeline JSON files, or screenshots.
+![ADF ingestion pipeline flow](../assets/screenshots/adf_pipeline_flow.png)
 
 Main pipeline:
 
