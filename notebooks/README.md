@@ -1,0 +1,18 @@
+# Databricks Notebooks
+
+This folder can store exported Databricks notebooks.
+
+Expected notebooks:
+
+```text
+00_config
+01_landing_to_bronze
+02_bronze_to_silver_orders
+03_bronze_to_silver_network_constraints
+04_create_valid_shipping_options
+05_silver_to_gold_dimensions
+06_silver_to_gold_facts
+07_optimization_model
+08_optimization_diagnostics
+09_quality_checks
+```
