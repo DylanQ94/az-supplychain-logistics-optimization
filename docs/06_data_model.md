@@ -58,9 +58,3 @@ optimization.fact_optimized_capacity_usage
 optimization.fact_unassigned_order_diagnostic
 optimization.fact_cost_comparison
 ```
-
-## Modeling Notes
-
-- `order_id` is stored as a string.
-- `order_id` is treated as a degenerate dimension in fact tables.
-- Thin dimensions are kept for star schema clarity and future Power BI usage.
