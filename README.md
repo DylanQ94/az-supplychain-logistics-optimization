@@ -2,7 +2,7 @@
 
 Az-SupplyChain is a data engineering project built on Azure to ingest, process, model, and expose a supply chain logistics dataset for analytical consumption.
 
-The current scope of the project goes from ingestion to the Synapse Serverless SQL serving layer. Power BI is intentionally left as a future phase.
+The current scope of the project goes from ingestion to the Synapse Serverless SQL serving layer.
 
 ## Project Scope
 
@@ -15,6 +15,19 @@ Implemented:
 - Bronze, Silver, Gold, and Optimization layers
 - Azure Synapse Analytics Serverless SQL serving layer
 - SQL views and CETAS materialized outputs
+
+## Dataset Source
+
+This project uses the public **Supply Chain Logistics Problem Dataset**, published on Figshare by Brunel University London.
+
+Dataset reference:
+
+* **Title:** Supply Chain Logistics Problem Dataset
+* **Authors:** Tatiana Kalganova, Ivars Dzalbs
+* **Source:** [Brunel Figshare — Supply Chain Logistics Problem Dataset](https://brunel.figshare.com/articles/dataset/Supply_Chain_Logistics_Problem_Dataset/7558679)
+* **DOI:** [10.17633/rd.brunel.7558679](https://doi.org/10.17633/rd.brunel.7558679)
+
+The dataset was used only for educational and portfolio purposes to build an Azure-based data engineering pipeline for supply chain logistics analysis and optimization.
 
 ## Architecture
 
@@ -32,8 +45,6 @@ Bronze / Silver / Gold / Optimization Delta Tables
 Azure Synapse Analytics Serverless SQL
     ↓
 Serving Views / CETAS Outputs
-    ↓
-Power BI - (Pending)
 ```
 
 ## Main Technologies
