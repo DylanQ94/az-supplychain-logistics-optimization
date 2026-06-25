@@ -31,8 +31,6 @@ materialized
 serving
 ```
 
-The `external_data` schema is not part of the final architecture and should be removed if it exists.
-
 ## Delta Access
 
 Synapse reads Delta folders directly from ADLS Gen2 using `OPENROWSET` with `FORMAT = 'DELTA'`.
@@ -59,7 +57,7 @@ materialized.route_cost_summary
 
 ## Serving Role
 
-The role `supply_chain_serving_reader` should be created to provide read-only access to the curated serving schema for future consumers such as Power BI.
+The role `supply_chain_serving_reader` was created to provide read-only access to the curated serving schema for future consumers such as Power BI.
 
 ## Final Output
 
