@@ -1,6 +1,6 @@
 # Synapse SQL Scripts
 
-This folder can store the Synapse Serverless SQL scripts used to create:
+This folder store the Synapse Serverless SQL scripts used to create:
 
 - Database
 - Schemas
