@@ -21,8 +21,6 @@ az_supplychain.gold
 az_supplychain.optimization
 ```
 
-The `quality` schema is not part of the final scope and should be removed if it exists.
-
 ## Notebooks
 
 | Notebook | Purpose |
@@ -40,7 +38,6 @@ The `quality` schema is not part of the final scope and should be removed if it 
 
 ## Main Decisions
 
-- The `order_id` field was standardized as a string from Silver onward to avoid scientific notation issues downstream.
 - Thin dimensions were kept to preserve a clean star schema and support future Power BI relationships.
 - `order_id` was kept as a degenerate dimension inside facts instead of creating a separate `dim_order`.
 - Quality checks were executed in notebooks, not persisted as extra quality tables.
