@@ -1,4 +1,4 @@
-![ADF ingestion pipeline flow](../assets/screenshots/adf_pipeline_flow.png)
+![ADF ingestion pipeline flow](../assets/images/adf_pipeline_flow.png)
 
 Main pipeline:
 
